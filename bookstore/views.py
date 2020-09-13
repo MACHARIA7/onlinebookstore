@@ -1,5 +1,9 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from .models import Book, Author, Order, OrderItem
+=======
+from .models import Boo
+>>>>>>> views
 from django.views import generic
 
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import *
+from .models import Boo
 from django.views import generic
 
 

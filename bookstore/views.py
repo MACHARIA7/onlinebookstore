@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import *
+from .models import Book, Author, Order, OrderItem
 from django.views import generic
 
 

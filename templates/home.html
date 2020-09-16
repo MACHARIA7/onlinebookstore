@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    This is homepage
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{#    <!--Jumbotron-->#}
+{#    <div class="jumbotron jumbotron-fluid purple lighten-5">#}
+{#        <div class="container-fluid ml-4">#}
+{#            <h2 class="display-4 orange-text font-weight-bolder">Search a book, <br> Read, <br>Expand your mind.</h2>#}
+{#            <p class="lead"></p>#}
+{#        </div>#}
+{#    </div>#}
+{#    <!--Jumbotron-->#}
+
+
+
+
+    <!--BOOK CARDS STARTS HERE-->
+        <div class="container">
+
+            <h6 class="text-center font-weight-bold purple-text mt-3 text-uppercase">top books</h6>
+
+            <div class="row justify-content-center mt-4">
+
+                {% for book in books %}
+                    <div class="col-md-3 col-sm-4 col-xsm-6 mb-3">
+                        <div class="card purple white-text">
+
+                            <a href="{% url 'book-detail' book.pk %}">
+                                <img class="card-img" src="{% static 'images/RDPD.jpg' %}" alt="">
+                            </a>
+
+                            <p class="card-text text-capitalize text-center mb-0">{{ book.title }}</p>
+
+                            {% for author in book.get_authors %}
+                                {% if forloop.first %}
+                                    <small class="text-capitalize text-center mt-1 mb-1">{{ author.first_name }} {{ author.last_name }}</small>
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    <!--BOOK ENDS STARTS HERE-->
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!--BOOK DETAILS-->
+    <div class="container mt-5">
+        <div class="row justify-content-center border border-light">
+            <div class="col-md-4">
+                <img class="img-flex p-3 d-block" src="{% static 'images/RDPD.jpg' %}" alt="">
+            </div>
+
+            <div class="col-md-4 py-3">
+                <h3 class="font-weight-bold deep-purple-text">{{ book.title }}</h3>
+
+                {% for author in book.get_authors %}
+                    <p class="d-inline-block purple-text font-italic"> {{ author }}</p> &middot;
+                {% endfor %}
+
+                <p>{{ book.description }}</p>
+
+                <button class="btn btn-md white-text font-weight-bold deep-purple">rent this book</button>
+
+            </div>
+        </div>
+    </div>
+    <!--END BOOK DETAILS-->
+
+
+    <div class="text-center mt-5 mb-4">
+        <h6 class="text-uppercase font-weight-bold deep-purple-text">related books</h6>
+    </div>
+
+
+    <!--RELATED BOOKS-->
+    <div class="container mt-2">
+        <div class="row justify-content-center">
+
+            <!--BOOK CARDS-->
+            {% for related_book in related_books %}
+                <div class="col-md-3 col-sm-4 col-xsm-6 mb-3">
+                <div class="card purple white-text">
+
+                    <a href="{% url 'book-detail' related_book.pk %}">
+                        <img class="card-img" src="{% static 'images/RDPD.jpg' %}" alt="">
+                    </a>
+
+                    <p class="card-text text-capitalize text-center mb-0">{{ related_book.title }}</p>
+
+                </div>
+
+            </div>
+            {% endfor %}
+            <!--END BOOK CARDS-->
+
+        </div>
+    </div>
+    <!--END RELATED BOOKS-->
+
+{% endblock %}

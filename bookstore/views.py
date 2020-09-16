@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Book, Author, Order, OrderItem
 from django.views import generic
+from django.shortcuts import get_object_or_404
 
 
 class HomepageView(generic.View):
@@ -17,3 +18,17 @@ class HomepageView(generic.View):
 
     def post(self, request):
         pass
+
+
+class BookDetailView(generic.View):
+    def get(self, request, pk):
+        book = get_object_or_404(Book, pk=pk)
+
+        related_books = Book.objects.filter(genre=book.genre)[:5]
+
+        context = {
+            "book": book,
+            "related_books": related_books,
+        }
+
+        return render(request, "book_detail.html", context)

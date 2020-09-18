@@ -7,7 +7,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center border border-light">
             <div class="col-md-4">
-                <img class="img-flex p-3 d-block" src="{% static 'images/RDPD.jpg' %}" alt="">
+                <img class="img-flex p-3 d-block" src="{{ book.image_url }}" alt="">
             </div>
 
             <div class="col-md-4 py-3">
@@ -42,7 +42,7 @@
                 <div class="card purple white-text">
 
                     <a href="{% url 'book-detail' related_book.pk %}">
-                        <img class="card-img" src="{% static 'images/RDPD.jpg' %}" alt="">
+                        <img class="card-img" src="{{ related_book.image_url }}" alt="">
                     </a>
 
                     <p class="card-text text-capitalize text-center mb-0">{{ related_book.title }}</p>

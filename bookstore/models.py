@@ -25,12 +25,20 @@ class Book(models.Model):
     genre = models.CharField(choices=GENRE, max_length=100, blank=True, null=True)
     price = models.DecimalField(decimal_places=2, max_digits=10)
     description = models.CharField(max_length=1024, blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["title"]
 
     def __str__(self):
         return self.title
+
+    def image_url(self):
+        try:
+            url = self.image.url
+        except:
+            url = ""
+        return url
 
     def get_authors(self):
         return self.author.all()

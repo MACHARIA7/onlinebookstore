@@ -27,7 +27,7 @@
                         <div class="card purple white-text">
 
                             <a href="{% url 'book-detail' book.pk %}">
-                                <img class="card-img" src="{% static 'images/RDPD.jpg' %}" alt="">
+                                <img class="card-img" src="{{ book.image_url }}" alt="">
                             </a>
 
                             <p class="card-text text-capitalize text-center book-title mb-0">{{ book.title }}</p>

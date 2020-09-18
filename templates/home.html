@@ -23,18 +23,18 @@
             <div class="row justify-content-center mt-4">
 
                 {% for book in books %}
-                    <div class="col-md-3 col-sm-4 col-xsm-6 mb-3">
+                    <div class="col-md-3 col-sm-4 col-xsm-6 mb-4">
                         <div class="card purple white-text">
 
                             <a href="{% url 'book-detail' book.pk %}">
                                 <img class="card-img" src="{% static 'images/RDPD.jpg' %}" alt="">
                             </a>
 
-                            <p class="card-text text-capitalize text-center mb-0">{{ book.title }}</p>
+                            <p class="card-text text-capitalize text-center book-title mb-0">{{ book.title }}</p>
 
                             {% for author in book.get_authors %}
                                 {% if forloop.first %}
-                                    <small class="text-capitalize text-center mt-1 mb-1">{{ author.first_name }} {{ author.last_name }}</small>
+                                    <small class="text-capitalize book-authors text-muted text-center mt-1 mb-1">{{ author.first_name }} {{ author.last_name }}</small>
                                 {% endif %}
                             {% endfor %}
 

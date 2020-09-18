@@ -4,6 +4,10 @@ from django.views import generic
 from django.shortcuts import get_object_or_404
 
 
+def auto_complete(request):
+    pass
+
+
 class HomepageView(generic.View):
     def get(self, request):
         """

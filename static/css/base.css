@@ -14,3 +14,11 @@
 .col-xsm-6 {
     max-width: 200px !important;
 }
+
+.book-title, .book-authors {
+    font-size: 12px !important;
+}
+
+.text-muted {
+    color: lightgray !important;
+}

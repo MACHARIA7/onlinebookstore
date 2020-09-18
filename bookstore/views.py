@@ -2,10 +2,16 @@ from django.shortcuts import render
 from .models import Book, Author, Order, OrderItem
 from django.views import generic
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 
 
 def auto_complete(request):
-    pass
+    if "term" in request.GET:
+        books = Book.objects.filter(title__icontains=request.GET.get("term"))
+        books_list = list()
+        for book in books:
+            books_list.append(book.title)
+        return JsonResponse(books_list, safe=False)
 
 
 class HomepageView(generic.View):

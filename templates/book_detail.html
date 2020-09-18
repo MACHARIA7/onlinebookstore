@@ -10,16 +10,16 @@
                 <img class="img-flex p-3 d-block" src="{{ book.image_url }}" alt="">
             </div>
 
-            <div class="col-md-4 py-3">
+            <div class="col-md-8 py-3">
                 <h3 class="font-weight-bold deep-purple-text">{{ book.title }}</h3>
 
                 {% for author in book.get_authors %}
                     <p class="d-inline-block purple-text font-italic"> {{ author }}</p> &middot;
                 {% endfor %}
 
-                <p>{{ book.description }}</p>
+                <p class="card-text">{{ book.description }}</p>
 
-                <button class="btn btn-md white-text font-weight-bold deep-purple">rent this book</button>
+                <button class="btn btn-md white-text font-weight-bold deep-purple">rent this book  @{{ book.price|floatformat:0 }}/=</button>
 
             </div>
         </div>

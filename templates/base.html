@@ -17,7 +17,11 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
-    <title></title>
+    <title>
+        {% block title %}
+            Bookmania
+        {% endblock %}
+    </title>
 </head>
 
 <body>
@@ -46,24 +50,21 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="" class="nav-link">Technology</a>
+                        <a href="{% url 'tech-books' %}" class="nav-link">Technology</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Sci-Fi</a>
+                        <a href="{% url 'sci-fi-books' %}" class="nav-link">Sci-Fi</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Personal Growth</a>
+                        <a href="{% url 'pg-books' %}" class="nav-link">Personal Growth</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Programming</a>
+                        <a href="{% url 'programming-books' %}" class="nav-link">Programming</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Novels</a>
-                    </li>
                 </ul>
 
                 <!-- Search form -->

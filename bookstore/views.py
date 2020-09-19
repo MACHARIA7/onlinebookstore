@@ -27,9 +27,6 @@ class HomepageView(generic.View):
         }
         return render(request, "home.html", context)
 
-    def post(self, request):
-        pass
-
 
 class BookDetailView(generic.View):
     def get(self, request, pk):
@@ -43,3 +40,39 @@ class BookDetailView(generic.View):
         }
 
         return render(request, "book_detail.html", context)
+
+
+class TechnologyBooksView(generic.View):
+    def get(self, request):
+        tech_books = Book.objects.filter(genre="Tech")
+        context = {
+            "tech_books": tech_books,
+        }
+        return render(request, "tech_books.html", context)
+
+
+class PersonalGrowthBooksView(generic.View):
+    def get(self, request):
+        pg_books = Book.objects.filter(genre="PG")
+        context = {
+            "pg_books": pg_books,
+        }
+        return render(request, "pg_books.html", context)
+
+
+class SciFiBooksView(generic.View):
+    def get(self, request):
+        sci_fi_books = Book.objects.filter(genre="Sci-Fi")
+        context = {
+            "sci_fi_books": sci_fi_books,
+        }
+        return render(request, "sci_fi_books.html", context)
+
+
+class ProgrammingBooksView(generic.View):
+    def get(self, request):
+        programming_books = Book.objects.filter(genre="Prog")
+        context = {
+            "programming_books": programming_books,
+        }
+        return render(request, "programming_books.html", context)

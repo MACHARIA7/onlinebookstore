@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
+{% block title %}
+    {{ block.super }} - {{ book.title }}
+{% endblock %}
+
+
+
 {% block content %}
 
     <!--BOOK DETAILS-->

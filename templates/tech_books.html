@@ -3,33 +3,21 @@
 
 
 {% block title %}
-    {{ block.super }} - Home
+    {{ block.super }} - Technology
 {% endblock %}
 
 
 
 {% block content %}
 
-{#    <!--Jumbotron-->#}
-{#    <div class="jumbotron jumbotron-fluid purple lighten-5">#}
-{#        <div class="container-fluid ml-4">#}
-{#            <h2 class="display-4 orange-text font-weight-bolder">Search a book, <br> Read, <br>Expand your mind.</h2>#}
-{#            <p class="lead"></p>#}
-{#        </div>#}
-{#    </div>#}
-{#    <!--Jumbotron-->#}
-
-
-
-
     <!--BOOK CARDS STARTS HERE-->
         <div class="container">
 
-            <h6 class="text-center font-weight-bold purple-text mt-3 text-uppercase">top books</h6>
+            <h6 class="text-center font-weight-bold purple-text mt-3 text-uppercase">tech related books</h6>
 
             <div class="row justify-content-center mt-4">
 
-                {% for book in books %}
+                {% for book in tech_books %}
                     <div class="col-md-3 col-sm-4 col-xsm-6 mb-4">
                         <div class="card purple white-text">
 
@@ -55,6 +43,5 @@
 
 
 
+
 {% endblock %}
-
-

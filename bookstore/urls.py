@@ -11,4 +11,5 @@ urlpatterns = [
     path("categories/personal-growth/", views.PersonalGrowthBooksView.as_view(), name="pg-books"),
     path("categories/science-fiction/", views.SciFiBooksView.as_view(), name="sci-fi-books"),
     path("categories/programming/", views.ProgrammingBooksView.as_view(), name="programming-books"),
+    path("search/", views.SearchResultsView.as_view(), name="search"),
 ]

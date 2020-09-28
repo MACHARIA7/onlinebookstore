@@ -69,8 +69,11 @@
                 </ul>
 
                 <!-- Search form -->
-                <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-                    <input class="form-control-md yellow-text form-control search-input ml-5 w-100" type="text" placeholder="Search a book" aria-label="Search">
+                <form class="form-inline form-md" method="get" action="{% url 'search' %}">
+                    <div class="md-form my-0">
+                        <input class="form-control yellow-text form-control search-input ml-5" type="text" name="q" placeholder="Search a book..." aria-label="Search">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm d-inline-block white-text btn-round font-weight-bold">Search</button>
                 </form>
                 <!-- Search form -->
 

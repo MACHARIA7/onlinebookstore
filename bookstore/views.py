@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.views import generic
+from django.db.models import Q
 
 from .models import Book
 
@@ -13,6 +14,18 @@ def auto_complete(request):
         for book in books:
             books_list.append(book.title)
         return JsonResponse(books_list, safe=False)
+
+
+class SearchResultsView(generic.View):
+    def get(self, request):
+        query = request.GET.get("q")
+        search_results = Book.objects.filter(
+            Q(title__icontains=query) | Q(author__first_name__icontains=query) | Q(author__last_name__icontains=query)
+        )
+        context = {
+            "search_results": search_results,
+        }
+        return render(request, "search_results.html", context)
 
 
 class HomepageView(generic.View):

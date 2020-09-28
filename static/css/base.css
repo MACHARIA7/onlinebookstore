@@ -4,7 +4,7 @@
 }
 
 .card {
-    max-width: 150px !important;
+    max-width: inherit !important;
 }
 
 .card-img {
@@ -12,7 +12,8 @@
 }
 
 .col-xsm-6 {
-    max-width: 200px !important;
+    max-width: 150px !important;
+    max-height: 300px !important;
 }
 
 .book-title, .book-authors {

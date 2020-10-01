@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }} - Signup
+{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-xlg-6 col-lg-6 col-md-8 col-sm-10 col-xsm-10">
+
+                    <h4 class="font-weight-bolder text-center">REGISTER</h4>
+
+                    <form action="" method="post" class="mb-4 border px-5 py-3 border-light">
+                        <small class="red-text ml-5">{{ message }}</small>
+                        {% csrf_token %}
+
+                        <div class="md-form mb-5">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input class="form-control" placeholder="E-mail" type="email" name="email">
+                        </div>
+
+                        <div class="md-form mb-5">
+                            <i class="fa fa-user prefix grey-text"></i>
+                            <input class="form-control" placeholder="Username" type="text" name="username">
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                            <input class="form-control" type="password" placeholder="Password" id="materialRegisterFormPassword" name="password1">
+                            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted text-center mb-4">At least 8 characters and 1 digit</small>
+                        </div>
+
+                        <div class="md-form mb-5">
+                            <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                            <input class="form-control" placeholder="Confirm Password" type="password" name="password2">
+                        </div>
+
+                        <button class="btn deep-purple white-text font-weight-bold btn-block mt-5" >SIGNUP</button>
+
+                        <p class="text-center mt-5">
+                            <small>
+                                Already have an account?
+                                <a href="{% url 'login' %}">Login</a>
+                            </small>
+                        </p>
+
+                    </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

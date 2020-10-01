@@ -8,6 +8,11 @@ from .models import Book
 
 
 def auto_complete(request):
+    """
+    Adds the auto-complete functionality to the search bar
+    :param request:
+    :return:
+    """
     if "term" in request.GET:
         books = Book.objects.filter(title__icontains=request.GET.get("term"))
         books_list = list()
@@ -17,14 +22,20 @@ def auto_complete(request):
 
 
 class SearchResultsView(generic.View):
+    """
+    Adds a search functionality to the app
+    """
     def get(self, request):
         query = request.GET.get("q")
+
         search_results = Book.objects.filter(
             Q(title__icontains=query) | Q(author__first_name__icontains=query) | Q(author__last_name__icontains=query)
         )
+
         context = {
             "search_results": search_results,
         }
+
         return render(request, "search_results.html", context)
 
 
@@ -44,6 +55,7 @@ class HomepageView(generic.View):
 
 
 class BookDetailView(generic.View):
+    """Displays the book details"""
     def get(self, request, pk):
         book = get_object_or_404(Book, pk=pk)
 
@@ -58,6 +70,9 @@ class BookDetailView(generic.View):
 
 
 class TechnologyBooksView(generic.View):
+    """
+    Displays books by category ---> Technology
+    """
     def get(self, request):
         tech_books = Book.objects.filter(genre="Tech")
 
